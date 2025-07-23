@@ -2,7 +2,7 @@
 
 using namespace std;
 
-/*
+//1
 int main()
 {
     char input[50];
@@ -27,9 +27,9 @@ int main()
     return 0;
 }
 
-*/
 
-/*
+
+//2
 
 int main(){
     char input[50];
@@ -48,10 +48,10 @@ int main(){
     return 0;
 }
 
-*/
 
 
-/*
+
+//3
 int main(){
     char input[50];
     cout<<"Enter a line: ";
@@ -69,7 +69,6 @@ int main(){
 }
 
 
-*/
 
 
 
