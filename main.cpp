@@ -1,75 +1,35 @@
 #include <iostream>
-
+#include <string>
+#include <cctype>
 using namespace std;
 
-//1
-int main()
-{
-    char input[50];
+bool isValidIdentifier(const string& input) {
+    if (input.empty()) return false;
 
-    cout<<"Enter input: "<<endl;
-    cin>>input;
+    if (!isalpha(input[0]) && input[0] != '_') {
+        return false;
+    }
 
-    bool isNumeric = true;
-
-    for(int i=0; input[i] !='\0';i++){
-        if (input[i]<'0' || input[i]>'9'){
-            isNumeric = false;
-            break;
+    for (size_t i = 1; i < input.length(); ++i) {
+        if (!isalnum(input[i]) && input[i] != '_') {
+            return false;
         }
     }
 
-    if (isNumeric){
-        cout<<"Your Input Was Numeric Constant"<<endl;
-    }else{
-         cout<<"Your Input Was Not Numerical"<<endl;
-         }
-    return 0;
+    return true;
 }
 
+int main() {
+    string input;
 
+    cout << "Enter an identifier to check: ";
+    cin >> input;
 
-//2
-
-int main(){
-    char input[50];
-    cout<<"Enter Input: "<<endl;
-    cin>>input;
-
-    int opCount = 0;
-
-    for(int i=0; input[i] !='\0';i++){
-       if(input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/' ||input[i] == '%' || input[i] == '='){
-        opCount++;
-        cout<<"Operator "<<opCount<<" : "<<input[i]<<endl;
-        }
-    }
-
-    return 0;
-}
-
-
-
-
-//3
-int main(){
-    char input[50];
-    cout<<"Enter a line: ";
-    cin>>input;
-
-    if (input[0]=='/' && input[1]=='/'){
-        cout<<"This is a Single Line Comment"<<endl;
-    } else if (input[0]=='/' && input[1]=='*' || input[0]=='*' && input[1]=='/'){
-        cout<<"This is a Multiple Line Comment"<<endl;
+    if (isValidIdentifier(input)) {
+        cout << "Result: Valid Identifier" << endl;
     } else {
-        cout<<"No Comment Found."<<endl;
+        cout << "Result: Not a Valid Identifier" << endl;
     }
 
     return 0;
 }
-
-
-
-
-
-
